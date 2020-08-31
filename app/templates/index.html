@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>yakabuff</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #email.unloaded {
+            font-style: italic;
+        }
+
+        html {
+            overflow-x: hidden;
+            padding: 0.5em;
+        }
+
+        body {
+            font-family: "Open Sans", "Verdana", "Arial", "sans-serif";
+            font-size: 81.25%;
+            max-width: 40em;
+            margin: 0 auto;
+            padding-bottom: 4em;
+            color: #222;
+            overflow-x: hidden;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin: 0.5em 0;
+        }
+
+        h2 {
+            font-size: 1.3em;
+            margin: 2em 0 0.8em 0;
+            width: 100%;
+            border-bottom: 1px solid #ccc;
+        }
+
+        h3 {
+            font-size: 1.1em;
+            margin: 0.3em 0 0.1em 0;
+        }
+
+        h4 {
+            font-size: 1em;
+        }
+
+        dt {
+            min-width: 12em;
+            float: left;
+        }
+
+        li {
+            /* Explicitly declare for nested lists */
+            list-style: disc;
+            margin-left: 1.5em;
+        }
+
+        .block-list > li {
+            border-top: 1px solid #ccc;
+            padding: 0.8em 0;
+            list-style-type: none;
+            margin-left: 0;
+        }
+
+        .block-list > li:first-child {
+            border-top: 0;
+        }
+
+        .project-time {
+            display: block;
+            float: right;
+            font-weight: normal;
+            font-size: 0.8em;
+            color: #aaa;
+        }
+
+        a, a:visited {
+            color: inherit;
+            text-decoration: underline;
+            text-decoration-color: #aaa;
+        }
+
+        a:hover, a:focus {
+            text-decoration: none;
+        }
+
+        a.anchor {
+            opacity: 0;
+            transition: opacity linear 0.1s;
+            text-decoration: none;
+            padding: 0 1em;
+        }
+
+        :hover > a.anchor {
+            opacity: 1;
+        }
+
+        ul#theme_switcher {
+            position: fixed;
+            top: 0;
+            right: 0;
+        }
+
+        #theme_switcher > li {
+            float: left;
+            list-style-type: none;
+            margin: 2px;
+        }
+
+        #theme_switcher > li > a {
+            width: 1em;
+            height: 1em;
+            border: 1px solid black;
+            display: block;
+            outline: none !important;
+            text-decoration: none !important;
+        }
+
+        #theme_switcher > li.solarized {
+            background-color: #002b36;
+        }
+
+        #theme_switcher > li.solarized > a {
+            border-color: #839496;
+        }
+
+        #theme_switcher > li.default {
+            background-color: #fff;
+        }
+
+        #theme_switcher > li.default > a {
+            border-color: #222;
+        }
+
+        body.solarized {
+            background-color: #002b36;
+            color: #839496;
+        }
+
+        body.solarized h2 {
+            border-color: #586e75;
+        }
+
+        body.solarized .project-time {
+            color: #586e75;
+        }
+
+        body.solarized .block-list > li {
+            border-color: #586e75;
+        }
+
+        body.solarized a, body.solarized a:visited {
+            text-decoration-color: #586e75;
+        }
+    </style>
+
+    <script type="text/javascript">
+        set_theme = function (theme_id) {
+            document.body.className = theme_id;
+            var expiryTime = new Date();
+            if (theme_id !== "default") {
+                // we immediately expire the "default" theme
+                expiryTime.setTime(expiryTime.getTime() + (30 * 24 * 60 * 60 * 1000));
+            }
+            document.cookie = "theme=" + theme_id + "; " + "expires=" + expiryTime.toUTCString();
+        };
+
+        window.onload = function () {
+            var result = /theme=(\w+)/.exec(document.cookie);
+            if (result !== null) {
+                set_theme(result[1]);
+            } else {
+                set_theme("default");
+            }
+        };
+    </script>
+</head>
+<body>
+<h1>Yakabuff</h1>
+
+<p>
+    Hello. My name is <b>Jonathan</b>.
+    I was born and raised in in Toronto and
+    I am currently studying computer science at <a href="https://www.yorku.ca/">York University</a>.
+    My hobbies consist of taking screenshots, collecting my internet browsing history and shifting my weight from 1 leg to another
+</p>
+<dl>
+    <dt>e-mail</dt>
+    <dd>
+        <span id="email" class="unloaded">Click to show</span>
+        <script type="text/javascript">
+            document.getElementById("email").addEventListener("click", function (evt) {
+                var p1 = "m@aka";
+                var p2 = "eyw.t";
+                var text = "";
+                for (var i = 0; i < 5; i++) {
+                    text += p1[i] + p2[i];
+                }
+                evt.target.classList.remove("unloaded");
+                evt.target.innerHTML = text;
+            });
+        </script>
+    </dd>
+    <dt>Discord</dt>
+    <dd>yakabuf#3382</dd>
+</dl>
+
+<ul>
+    <li><a href="https://github.com/yakabuff" target="_blank">GitHub</a></li>
+<!--    <li><a href="http://ci.yawk.at" target="_blank">Jenkins</a></li>-->
+<!--    <li><a href="http://mvn.yawk.at" target="_blank">Maven</a></li>-->
+</ul>
+
+<h2>Articles <a href="#articles" id="articles" class="anchor">&para;</a></h2>
+
+<p>
+    I am active in <a href="https://javachannel.org/">Freenode/##java</a> and have written a few articles on Java topics:
+</p>
+
+<ul>
+    <li><a href="https://yawk.at/ffn-android-reversing/"><b>Reversing the fanfiction.net Android App</b></a> (June 2018)
+    </li>
+    <li><a href="https://yawk.at/java.time/"><b>An introduction to java.time</b></a> (April 2018)</li>
+    <li><a href="https://yawk.at/java-support/"><b>Java Support Lifecycle</b></a> (April 2018) on the future of Java support</li>
+    <li>
+        <a href="https://javachannel.org/posts/how-not-to-extend-standard-collection-classes/"><b>How (not) to extend standard collection classes</b></a> (October 2017), on why you should not extend standard collection classes.
+    </li>
+    <li>
+        <a href="http://javachannel.org/posts/immutability-in-java/"><b>Immutability in Java</b></a> (April 2017), an overview of immutability implementation in java and avoiding common pitfalls.
+    </li>
+    <li>
+        <a href="http://javachannel.org/posts/bypassing-subclass-method-overrides/"><b>Bypassing subclass method overrides</b></a> (May 2015) on using the MethodHandle API to invoke an overridden method's supermethod.
+    </li>
+</ul>
+
+<h2>Major Projects <a href="#major_projects" id="major_projects" class="anchor">&para;</a></h2>
+
+<ol class="block-list">
+    <li>
+        <h4>Bachelor's Thesis: <a href="https://github.com/Valda-IR/Valda-IR/">Valda IR</a>
+            <a href="#bachelor" id="bachelor" class="anchor">&para;</a>
+            <span class="project-time">2018</span></h4>
+        <p>A new intermediate representation for DEX</p>
+        <ul>
+            <li>Java, Kotlin</li>
+            <li>Android</li>
+            <li>Smali</li>
+        </ul>
+    </li>
+    <li>
+        <h4>CubeCraft PE <a href="#cubecraft_pe" id="cubecraft_pe" class="anchor">&para;</a>
+            <span class="project-time">2015 - 2017</span></h4>
+        <p>Project developed for <a href="https://www.cubecraft.net/" target="_blank">CubeCraft</a>
+        </p>
+        <ul>
+            <li>Java, Kotlin</li>
+            <li>Guice</li>
+            <li>Netty</li>
+            <li>Minecraft Pocket Edition (protocol work)</li>
+        </ul>
+    </li>
+    <li>
+        <h4>Bluestart <a href="#bluestart" id="bluestart" class="anchor">&para;</a>
+            <span class="project-time">2015 - 2016</span></h4>
+
+        <p>Project developed for <a href="http://phanaticmc.com/" target="_blank">PhanaticMC</a>
+        </p>
+        <ul>
+            <li>Java</li>
+            <li>Spring, Spring MVC (spring-web, spring-security, spring-data-jpa)</li>
+            <li>GWT</li>
+            <li>REST</li>
+            <li>HTML / CSS</li>
+            <li>Docker</li>
+        </ul>
+    </li>
+    <li>
+        <h4><a href="http://www.spigotmc.org/resources/saikban.7588/">Saikban</a>
+            <a href="#saikban" id="saikban" class="anchor">&para;</a>
+            <span class="project-time">2015 - <span title="active development until 2015, still maintained">2016</span></span></h4>
+
+        <p>Minecraft ban manager with web interface, developed for
+            <a href="http://phanaticmc.com/" target="_blank">PhanaticMC</a></p>
+        <ul>
+            <li>Java</li>
+            <li>BungeeCord</li>
+            <li>Spring, Spring MVC (spring-web, spring-security)</li>
+            <li>SQL with Hibernate (JPA)</li>
+            <li>handlebars.java</li>
+            <li>HTML / CSS / JavaScript / Bootstrap</li>
+        </ul>
+    </li>
+    <li>
+        <h4><a href="http://www.spigotmc.org/resources/cricket.3069/">Cricket</a>
+            <a href="#cricket" id="cricket" class="anchor">&para;</a>
+            <span class="project-time">2014 - <span title="active development until 2015, still maintained">2016</span></span></h4>
+
+        <p>Minecraft ticketing system with web interface, developed for <a href="http://phanaticmc.com/"
+                                                                                       target="_blank">PhanaticMC</a>
+        </p>
+        <ul>
+            <li>Java</li>
+            <li>Bukkit / Spigot</li>
+            <li>SQL</li>
+            <li>handlebars.java</li>
+            <li>HTML / CSS / JavaScript / Bootstrap</li>
+        </ul>
+    </li>
+    <li>
+        <h4>MCStrike <a href="#mcstrike" id="mcstrike" class="anchor">&para;</a> <span
+                class="project-time">2012 - 2014</span></h4>
+
+        <p>Minecraft minigame server</p>
+        <ul>
+            <li>Java</li>
+            <li>Minecraft server code</li>
+            <li>Bukkit / Spigot</li>
+            <li>ProtocolLib</li>
+            <li>BungeeCord, including multi-machine bungee installations and <a
+                    href="https://github.com/SpigotMC/BungeeCord/commits?author=yawkat">numerous contributions</a></li>
+            <li>Netty</li>
+            <li>MongoDB</li>
+            <li>Bash (for server management)</li>
+            <li>Python (for server management)</li>
+        </ul>
+    </li>
+    <li>
+        <h4>jClient <a href="#jclient" id="jclient" class="anchor">&para;</a> <span
+                class="project-time">2011 - 2013</span></h4>
+
+        <p>A minecraft mod</p>
+        <ul>
+            <li>Java</li>
+            <li>Minecraft client code</li>
+            <li>GL (via LWJGL)</li>
+        </ul>
+    </li>
+</ol>
+
+<h2>Minor Projects <a href="#minor_projects" id="minor_projects" class="anchor">&para;</a></h2>
+
+<p>Check out my <a href="https://github.com/yawkat" target="_blank">GitHub</a> for other minor projects. <br>
+    Some interesting ones include:</p>
+<ul>
+    <li>
+        <h4><a href="https://github.com/yawkat/java-browser">java-browser</a></h4>
+        Java source code browser written using kotlin, undertow, jdbi and postgresql
+    </li>
+    <li>
+        <h4><a href="https://github.com/yawkat/javap">javap</a></h4>
+        Web UI for javap written using kotlin, dropwizard, guice, jdbi and jquery
+    </li>
+    <li>
+        <h4><a href="https://github.com/yawkat/katbot">katbot</a></h4>
+        IRC Bot written using kotlin and KittehIRCClientLib
+    </li>
+    <li>
+        <h4><a href="https://github.com/yawkat/mdep">mdep</a></h4>
+        Java dependency loader
+    </li>
+</ul>
+
+<ul id="theme_switcher">
+    <li class="default" title="Default"><a href="javascript:;" onclick="set_theme('default')">&nbsp;</a></li>
+    <li class="solarized" title="Solarized"><a href="javascript:;" onclick="set_theme('solarized')">&nbsp;</a></li>
+</ul>
+</body>
+</html>

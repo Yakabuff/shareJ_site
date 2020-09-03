@@ -1,7 +1,7 @@
 from github import Github
 from app import settings
 from model import Changelog
-from model.dbWrapper import db
+from model.Changelog import db
 
 
 def initialRetrival():
@@ -13,8 +13,8 @@ def initialRetrival():
 
     for release in releases:
 
-        entry = Changelog(release.tag_name, release.created_at, release.body, release.zipball_url)
-        db.session.add(entry)
+        # entry = Changelog.Changelog(release.tag_name, release.created_at, release.body, release.zipball_url)
+        db.session.add(Changelog.Changelog( release.id, release.tag_name,release.created_at, release.body, release.zipball_url))
         db.session.commit()
 
 def getUpdates():

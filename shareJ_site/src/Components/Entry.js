@@ -24,7 +24,9 @@ class Entry extends Component{
         axios
           .get('/api')
           .then(({ data })=> {
-              this.setState({ 
+              this.setState({
+              commit_id: data.commit_id
+              release_link: data.release_link
               date: data.date, 
               body: data.body,
               version:data.version,
